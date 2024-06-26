@@ -1,0 +1,53 @@
+/* src/Header.css */
+.header {
+  background-color: #333; /* Grey background */
+  color: #fff; /* White text */
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 275px);
+  left: 250px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+.header p {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc; /* Light grey text for subtitle */
+}
+
+.upload-button {
+  background-color: #1db954; /* TikTok red */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Adjust margin as needed */
+  margin-right: 10px;
+}
+
+.upload-button:hover {
+  background-color: #e60045; /* Darker TikTok red on hover */
+}
