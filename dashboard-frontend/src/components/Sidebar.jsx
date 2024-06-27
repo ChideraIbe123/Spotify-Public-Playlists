@@ -6,6 +6,7 @@ import { MdAccountCircle } from "react-icons/md";
 import "./Sidebar.css";
 import logo from "../assets/spotify-scrapped.png";
 import Login from "./Login";
+import account from "../assets/account.png";
 
 const Sidebar = ({ profile }) => {
   const [activeTab, setActiveTab] = useState("Home");
@@ -15,49 +16,18 @@ const Sidebar = ({ profile }) => {
       <div className="profile-picture-container">
         {profile && profile.images && profile.images.length > 0 ? (
           <img
-            src={profile.images.url}
+            src={profile.images[0].url}
             alt={profile.display_name}
             className="profile-picture"
           />
         ) : (
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Profile"
-            className="profile-picture"
-          />
+          <img src={account} alt="Profile" className="profile-picture" />
         )}
       </div>
-      <h2>{profile ? profile.display_name : "Name Placeholder"}</h2>
-      <ul>
-        <li
-          className={activeTab === "Home" ? "active" : ""}
-          onClick={() => setActiveTab("Home")}
-        >
-          <FaHome className="icon" />
-          Dashboard
-        </li>
-        <li
-          className={activeTab === "Analytics" ? "active" : ""}
-          onClick={() => setActiveTab("Analytics")}
-        >
-          <GoGraph className="icon" />
-          Analytics
-        </li>
-        <li
-          className={activeTab === "Trends" ? "active" : ""}
-          onClick={() => setActiveTab("Trends")}
-        >
-          <FaMapLocation className="icon" />
-          Trends
-        </li>
-        <li
-          className={activeTab === "Settings" ? "active" : ""}
-          onClick={() => setActiveTab("Settings")}
-        >
-          <MdAccountCircle className="icon" />
-          Settings
-        </li>
-      </ul>
+      <h2 className="name">
+        {profile ? profile.display_name : "Name Placeholder"}
+      </h2>
+
       <Login></Login>
       <img src={logo} alt="TikTok Logo" className="logo" />
     </div>

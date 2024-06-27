@@ -14,9 +14,6 @@ const Header = () => {
         <h3>Dashboard</h3>
         <p>Welcome to the Spotify Dashboard</p>
       </div>
-      <button className="upload-button" onClick={handleUploadClick}>
-        Filter
-      </button>
     </header>
   );
 };

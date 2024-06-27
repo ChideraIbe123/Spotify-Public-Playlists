@@ -25,6 +25,10 @@
   width: 8px;
 }
 
+.name {
+  padding-bottom: 275px;
+}
+
 .sidebar ul li .icon {
   margin-right: 15px; /* Space between icon and text */
 }
