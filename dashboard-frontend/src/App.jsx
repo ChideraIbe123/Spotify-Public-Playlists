@@ -1,12 +1,16 @@
-// src/App.js
 import React, { useEffect, useState } from "react";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
+import Login from "./components/Login";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
+  const [profile, setProfile] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
+  const [refreshToken, setRefreshToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     // Mocking the API response with sample data
@@ -44,11 +48,29 @@ const App = () => {
     setVideos(sampleData.data.videos);
   }, []);
 
+  const handleLoginSuccess = (accessToken, refreshToken, profile) => {
+    setAccessToken(accessToken);
+    setRefreshToken(refreshToken);
+    setProfile(profile);
+    setIsLoggedIn(true);
+  };
+
+  const handleObtainNewToken = (newAccessToken) => {
+    setAccessToken(newAccessToken);
+  };
+
   return (
     <div className="App">
-      <Sidebar></Sidebar>
-      <Header></Header>
+      <Sidebar profile={profile} />
+      <Header />
       <Dashboard videos={videos} />
+      <Login
+        onLoginSuccess={handleLoginSuccess}
+        onObtainNewToken={handleObtainNewToken}
+        isLoggedIn={isLoggedIn}
+        accessToken={accessToken}
+        refreshToken={refreshToken}
+      />
     </div>
   );
 };
