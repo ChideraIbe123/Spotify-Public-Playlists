@@ -1,0 +1,9 @@
+.spotify-green-button {
+  background-color: #1db954;
+  border-color: #1db954;
+}
+
+.spotify-green-button:hover {
+  background-color: #1ed760;
+  border-color: #1ed760;
+}

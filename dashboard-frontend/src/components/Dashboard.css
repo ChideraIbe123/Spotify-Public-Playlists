@@ -1,0 +1,108 @@
+/* src/Dashboard.css */
+:root {
+  --primary-color: #1db954; /* Spotify Green */
+  --secondary-color: #191414; /* Spotify Black */
+  --background-color: #121212; /* Dark background */
+  --card-background: #282828; /* Dark card */
+  --card-shadow: rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+  --header-height: 100px; /* Header height */
+  --sidebar-width: 250px; /* Sidebar width */
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: white; /* Set h2 text color to white */
+}
+
+.dashboard {
+  padding: calc(var(--header-height) + 20px) 20px 20px
+    calc(var(--sidebar-width) + 20px);
+}
+
+.video-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent line breaks */
+  padding: 20px 0; /* Add padding for better appearance */
+}
+
+.video-grid {
+  display: inline-flex; /* Change to inline-flex to allow horizontal scrolling */
+  flex-wrap: nowrap; /* Prevent wrapping to new lines */
+  gap: 50px; /* Increase gap between items */
+}
+
+.video-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex: 0 0 500px; /* Increased width for each card */
+  height: 500px; /* Increased height for each card to make them squares */
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px var(--card-shadow);
+}
+
+.video-thumbnail-container {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Make container square */
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0); /* Black background with 0 opacity initially */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.video-card:hover .video-overlay {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Black background with 70% opacity on hover */
+}
+
+.video-info {
+  color: #fff; /* White text */
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.3s ease;
+}
+
+.video-card:hover .video-info {
+  opacity: 1; /* Show text on hover */
+}
+
+.video-info h3,
+.video-info p {
+  margin: 10px 0;
+}
